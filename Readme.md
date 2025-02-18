@@ -23,7 +23,7 @@
 18. **Area Calculator**: Calculate the area of basic shapes (circle, triangle, rectangle).
 19. **Fibonacci Sequence Generator**: Generate Fibonacci numbers up to a given term.
 20. **Leap Year Checker**: Determine if a year is a leap year.
-
+<!-- Done -->
 ---
 
 # **Intermediate Projects (21–60)**
