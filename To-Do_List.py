@@ -31,5 +31,5 @@ def to_do() -> None:
 
     to_do_lis = list_input(lis)
     ask(to_do_lis)
-
-to_do()
+if __name__ == "__main__":
+    to_do()
