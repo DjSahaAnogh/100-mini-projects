@@ -1,6 +1,6 @@
 def woods_adventure() -> None:
     print("(Crumbling noise) You are in the woods!")
-    print("One lampe in hanging on the tree.\n But you can see very little.")
+    print("One lamp is hanging on the tree.\nBut you can see very little.")
     player_input = input("Pull out your phone? (yes/no): ")
     if player_input == "yes":
         print("[Phone].")
@@ -10,13 +10,13 @@ def woods_adventure() -> None:
             print("Phone battery: 89%")
             player_input = input("Walk forward, backward or left? (forward/backward/left): ")
             if player_input == "forward":
-                print("[Waling forward].")
-                print("[Spoted a bag].")
+                print("[Walking forward].")
+                print("[Spotted a bag].")
                 player_input = input("Open the bag? (yes/no): ")
                 if player_input == "yes":
                     print("[Bag].")
-                    print("[Bag inventory:\n 1x Water bottle\n 1x Snack\n 1x Short knife\n 1x Flashlight battery\n 1x Rope]")
-                    print("[Spoted a bannner].")
+                    print("[Bag inventory:\n1x Water bottle\n1x Snack\n1x Short knife\n1x Flashlight battery\n1x Rope]")
+                    print("[Spotted a banner].")
                     player_input = input("Read the banner? (yes/no): ")
                     if player_input == "yes":
                         print("[Banner].")
@@ -25,96 +25,36 @@ def woods_adventure() -> None:
                         if player_input == "yes":
                             print("[Map].")
                             print("You have taken the map.")
-                            print("Map:\n 1. Bear Zone (Forward)\n 2. Shope (Left)\n 3. Train Station (Right)")
-                            print("Player speaks: Walking forward is foolish, I should go to the shop or station, whrer to go first?")
+                            print("Map:\n1. Bear Zone (Forward)\n2. Shop (Left)\n3. Train Station (Right)")
                             player_input = input("Go to the shop or station? (shop/station): ")
                             if player_input == "shop":
                                 print("You are in the shop!")
+                                print("[There is an old broken cashbox.]")
+                                player_input = input("Open the cashbox? (yes/no): ")
+                                if player_input == "yes":
+                                    print("[Cashbox].")
+                                    print("[Cashbox inventory:\n18$ \n1x Shotgun shells box]")
+                                    print("You take the money and shells.")
+                                print("You head to the station.")
+                                print("You buy a ticket and board the train. You have won the game!")
                             else:
-                                print("You are in the station!")
+                                print("You are in the station but have no money.")
+                                print("You head back to the shop, find the cashbox, take the money, and return.")
+                                print("You buy a ticket and board the train. You have won the game!")
                         else:
-                            print("You are in the woods!")
-                            player_input = input("Walk forward, backward or left? (forward/backward/left): ")
-                            if player_input == "forward":
-                                print("[A bear saw you!]")
-                                print("[Bear is running towards you!]")
-                                player_input = input("Run or fight? (run/fight): ")
-                                if player_input == "run":
-                                    print("[Running].")
-                                    print("[You are lost in the woods!]")
-                                else:
-                                    print("[Fighting].")
-                                    print("[You killed the bear with the shortgun!]")
-                                    print("[You are lost in the woods!]")
+                            print("Without a map, you get lost and never find a way out. Game Over!")
                     else:
-                        print("You are in the woods!")
-                        player_input = input("Walk forward, backward or left? (forward/backward/left): ")
-                        if player_input == "forward":
-                            print("[A bear saw you!]")
-                            print("[Bear is running towards you!]")
-                            player_input = input("Run or fight? (run/fight): ")
-                            if player_input == "run":
-                                print("[Running].")
-                                print("[You are dead!]")
-                            else:
-                                print("[Fighting].")
-                                print("[You are dead!]")
+                        print("Without the information on the banner, you wander into the bear zone. The bear attacks. Game Over!")
                 else:
-                    print("[Walking forward].")
-                    print("[A bear saw you!]")
-                    print("[Bear is running towards you!]")
-                    player_input = input("Run or fight? (run/fight): ")
-                    if player_input == "run":
-                        print("[Running].")
-                        print("[You are dead!]")
-                    else:
-                        print("[Fighting].")
-                        print("[You are dead!]")
+                    print("Without supplies, you don't survive the night. Game Over!")
             elif player_input == "backward":
-                pass # add code here
+                print("You stumble into a deep pit. Game Over!")
             else:
-                pass # add code here
+                print("You walk left and find an old house. It's abandoned, but you stay the night and survive. Game Over!")
         else:
-            print("You are in the dark.")
-            player_input = input("Walk forward, backward or left? (forward/backward/left): ")
-            if player_input == "forward":
-                print("[Walking forward].")
-                print("[Heard strange noise].")
-                player_input = input("Walk forward or backward? (forward/backward): ")
-                if player_input == "forward":
-                    print("[Walking forward].")
-                    print("[You are dead!]")
-                else:
-                    print("[Walking backward].")
-                    print("You are in the same sopt.")
-            elif player_input == "backward":
-                print("[Walking backward].")
-                print("You trigered a trap!")
-                print("You are dead!")
-            else:
-                print("Lost in the woods!")
+            print("You are in the dark and hear strange noises. You are too scared to move. Game Over!")
     else:
-        print("You are in the dark.")
-        player_input = input("Walk forward, backward or left? (forward/backward/left): ")
-        if player_input == "forward":
-            print("[Walking forward].")
-            print("[Heard strange noise].")
-            player_input = input("Walk forward or backward? (forward/backward): ")
-            if player_input == "forward":
-                print("[Walking forward].")
-                print("[You are dead!]")
-            else:
-                print("[Walking backward].")
-                print("You are in the same sopt.")
-        elif player_input == "backward":
-            print("[Walking backward].")
-            print("You trigered a trap!")
-            print("You are dead!")
-        else:
-            print("Lost in the woods!")
-    
-
-    
+        print("You are in the dark and hear strange noises. You panic and run into a tree, knocking yourself out. Game Over!")
 
 def castle_adventure() -> None:
     print("You are in the castle!")

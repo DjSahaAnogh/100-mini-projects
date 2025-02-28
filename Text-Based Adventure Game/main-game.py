@@ -10,3 +10,7 @@ def game() -> None:
         space_adventure()
     elif game_choice == "4":
         print("See you  again!")
+
+
+if __name__ == "__main__":
+    game()
