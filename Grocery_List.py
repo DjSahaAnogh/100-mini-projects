@@ -1,6 +1,4 @@
 from datetime import datetime
-import os
-
 def grocery() -> None:
 
     x = datetime.now()
@@ -15,15 +13,29 @@ def grocery() -> None:
         return lis
 
     def ask(lis1) -> None:
+        import platform
+        import os  
+
         def save(data):
-            base_name = "grocery_list"
+            base_name = "contact_list"
             counter = 1
-            while os.path.exists(f"{base_name}_{counter}.txt"):
-                counter += 1
-            filename = f"{base_name}_{counter}.txt"
+            
+            if platform.system() == "Windows":
+                while os.path.exists(f"{base_name}_{counter}.txt"):
+                    counter += 1
+                filename = f"{base_name}_{counter}.txt"
+            
+            else:  # macOS and Linux
+                directory = os.path.expanduser("~/Documents/")  # Save in ~/Documents/
+                os.makedirs(directory, exist_ok=True)  # Ensure the directory exists
+                while os.path.exists(os.path.join(directory, f"{base_name}_{counter}.txt")):
+                    counter += 1
+                filename = os.path.join(directory, f"{base_name}_{counter}.txt")
+
             with open(filename, "w") as file:
                 file.write(str(data))
 
+            print(f"Data saved to: {filename}")
         choice: int = int(input("1.Show grocery list\n2.Save it.\nAnswer: "))
         if choice == 1:
             print(lis1)
