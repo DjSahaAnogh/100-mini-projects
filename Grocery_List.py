@@ -17,7 +17,7 @@ def grocery() -> None:
         import os  
 
         def save(data):
-            base_name = "contact_list"
+            base_name = "grocery_list"
             counter = 1
             
             if platform.system() == "Windows":
