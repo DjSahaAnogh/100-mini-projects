@@ -11,6 +11,7 @@ def log_analyzer() -> Counter:
         for level in log_levels:
             if level in line:
                 log_counts[level] += 1
+
     def get_log_time_range(log_file):
         with open(log_file, "r") as file:
             first_line = file.readline().strip()  # Read the first line
@@ -26,6 +27,7 @@ def log_analyzer() -> Counter:
 
         return start_time, end_time
     start_time, end_time = get_log_time_range(fliename)
+
     def report(log_counts, start_time, end_time):
         import datetime
         import platform
@@ -34,7 +36,7 @@ def log_analyzer() -> Counter:
             base_name = "log_report"
             count = 1
             while os.path.exists(f"{base_name}_{count}.txt"):
-                    counter += 1
+                    count += 1
             filename = f"{base_name}_{count}.txt"
         else:  # macOS and Linux
             directory = os.path.expanduser("~/Documents/")  # Save in ~/Documents/
@@ -42,11 +44,25 @@ def log_analyzer() -> Counter:
             while os.path.exists(os.path.join(directory, f"{base_name}_{count}.txt")):
                 count += 1
             filename = os.path.join(directory, f"{base_name}_{count}.txt")
+        
         with open(filename, "w") as log_report:
             log_report.write(f"Log report generated on {datetime.datetime.now()}\n")
             log_report.write(f"Log time range: {start_time} - {end_time}\n\n")
             for level, count in log_counts.items():
                 log_report.write(f"{level}: {count}\n")
+            log_report.write("ERROR LOGS:\n")
+            error_count = 1
+            for line in log_data:
+                if "ERROR" in line:
+                    log_report.write(f"{error_count}. {line.strip()}\n")
+                    error_count += 1
+
+            log_report.write("\nWARNING LOGS:\n")  # Separate section for warnings
+            warning_count = 1
+            for line in log_data:
+                if "WARNING" in line:
+                    log_report.write(f"{warning_count}. {line.strip()}\n")
+                    warning_count += 1    
     report(log_counts, start_time, end_time)
 
 if __name__ == "__main__":
