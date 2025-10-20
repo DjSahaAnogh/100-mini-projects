@@ -18,6 +18,9 @@ def pass_generator(pass_len: int) -> str:
         random.shuffle(password_list)
         password = "".join(password_list)
         return password
+    elif pass_len - 4 < 0:
+        print("Password length must be at least 4 characters to include all character types.")
+        return ""
     else:
         for i in range(pass_len - 4):
             password += random.choice(caps_letters + small_letters + digits + symbols)
